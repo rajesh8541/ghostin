@@ -3,22 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+       
     <title>Ghost Inspector Pricing</title>
     <style>
       body {
-        font-family: "Inter", sans-serif;
+        font-family: "Inter", Sans-serif;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         margin: 0;
-        padding: 0;
-        background-color: #e6fff8;
+      }
+
+      .section header {
+        margin: 0 auto;
+        padding: 32px 50px;
+        max-width: 1140px;
       }
 
       header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 20px 50px;
         background-color: #fff;
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 0;
       }
 
       header .logo {
@@ -27,8 +37,8 @@
       }
 
       header .logo img {
-        width: 30px;
-        margin-right: 10px;
+        width: 280px;
+        height: auto;
       }
 
       header nav a {
@@ -36,7 +46,73 @@
         text-decoration: none;
         color: #333;
       }
+      nav {
+    display: flex;
+    align-items: center;
+    position: relative; /* To position the dropdown content relative to the nav */
+}
 
+nav a {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #333;
+    position: relative; /* To allow positioning of potential indicators */
+}
+.dropdown-arrow {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent; /* Make left side transparent */
+    border-right: 5px solid transparent; /* Make right side transparent */
+    border-top: 5px solid #333;       /* Solid color for the bottom edge (arrow) */
+    margin-left: 5px;
+}
+.dropdown {
+    position: relative; /* To position the dropdown content */
+}
+
+.dropdown-content {
+    display: none; /* Initially hidden */
+    position: absolute;
+    top: 100%; /* Positioned below the "Features" link */
+    left: 0;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    z-index: 10; /* Ensure it's above other elements */
+    border-radius: 5px;
+    min-width: 200px; /* Adjust as needed */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block; /* Show on hover */
+}
+
+.feature-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.feature-item:last-child {
+    margin-bottom: 0;
+}
+
+.feature-item img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+.feature-item span {
+    font-size: 16px;
+    color: #555;
+}
+      header .auth-buttons {
+        display: flex;
+        align-items: center;
+      }
       header .auth-buttons a {
         margin-left: 15px;
         text-decoration: none;
@@ -44,19 +120,24 @@
       }
 
       header .auth-buttons .signup {
-        background-color: #1abc9c;
-        color: #fff;
+        background-color: #66E0BE;;
+        color: #000;
         padding: 10px 20px;
         border-radius: 20px;
+        font-size: 16px;
+        font-weight: 500;
+        padding: 16px 24px 16px 24px;
+        border-radius: 999px 999px 999px 999px;
       }
 
       header .auth-buttons .signup:hover {
-        background-color: #16a085;
+        background-color: #000;
+        color: #fff;
       }
 
       .hero {
         text-align: center;
-        padding: 50px 20px;
+        padding: 45px 5px;
         background-color: #fff;
       }
 
@@ -78,57 +159,98 @@
       }
 
       .hero .cta-buttons .trial {
-        background-color: #1abc9c;
-        color: #fff;
+        background-color: #66E0BE;;
+        color: #000;
+        padding: 10px 20px;
+        border-radius: 20px;
+        font-size: 16px;
+        font-weight: 500;
+        padding: 16px 24px 16px 24px;
+        border-radius: 999px 999px 999px 999px;
       }
 
       .hero .cta-buttons .trial:hover {
-        background-color: #16a085;
-      }
-
-      .hero .cta-buttons .demo {
-        border: 1px solid #1abc9c;
-        color: #1abc9c;
-      }
-
-      .hero .cta-buttons .demo:hover {
-        background-color: #1abc9c;
+        background-color: #000;
         color: #fff;
       }
 
+      .hero .cta-buttons .demo {
+        border: 1px solid #000;
+        color: #000;
+        padding: 10px 20px;
+        border-radius: 20px;
+        font-size: 16px;
+        font-weight: 500;
+        padding: 16px 24px 16px 24px;
+        border-radius: 999px 999px 999px 999px;
+      }
+
+      .fa-play-circle{
+        color: #1abc9c;
+      }
+
+      .fa-play-circle:hover{
+        color: #000;
+      }
+
       .toggle {
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        text-align: center;
         margin: 20px 0;
       }
 
-      .toggle-btn-annual,
-      .toggle-btn-monthaly {
-        background-color: white;
-        border: 2px solid #1abc9c;
-        color: #1abc9c;
-        padding: 10px 20px;
-        font-size: 16px;
-        font-weight: 500;
+      .toggle label {
+        margin: 0 10px;
+        font-size: 18px;
+      }
+
+      .toggle .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+      }
+
+      .toggle .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .toggle .slider {
+        position: absolute;
         cursor: pointer;
-        transition: all 0.3s ease;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        transition: 0.4s;
+        border-radius: 34px;
       }
 
-      .toggle-btn-annual {
-        border-top-left-radius: 20px;
-        border-bottom-left-radius: 20px;
-        border-right: none;
+      .toggle .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: 0.4s;
+        border-radius: 50%;
       }
 
-      .toggle-btn-monthaly {
-        border-top-right-radius: 20px;
-        border-bottom-right-radius: 20px;
-      }
-
-      .toggle .active {
+      .toggle input:checked + .slider {
         background-color: #1abc9c;
-        color: white;
+      }
+
+      .toggle input:checked + .slider:before {
+        transform: translateX(26px);
+      }
+
+      .toggle .save {
+        margin-left: 10px;
+        color: #1abc9c;
       }
 
       .pricing {
@@ -153,7 +275,7 @@
         position: absolute;
         top: -10px;
         left: -10px;
-        background-color: #e6fff8;
+        background-color: #1abc9c;
         color: #fff;
         padding: 5px 10px;
         transform: rotate(-45deg);
@@ -166,9 +288,7 @@
       }
 
       .pricing .card .price {
-        font-size: 65px;
-        font-weight: 800;
-        color: #1a202c;
+        font-size: 48px;
         margin: 10px 0;
       }
 
@@ -192,15 +312,13 @@
       .pricing .card .buy-now {
         background-color: #1abc9c;
         color: #fff;
-        padding: 16px 24px;
-        font-size: 16px;
-        font-weight: 500;
+        padding: 10px 20px;
         text-decoration: none;
-        border-radius: 999px 999px 999px 999px;
+        border-radius: 20px;
       }
 
       .pricing .card .buy-now:hover {
-        background-color: green;
+        background-color: #16a085;
       }
 
       .chat {
@@ -217,30 +335,66 @@
       .chat:hover {
         background-color: #1abc9c;
       }
-      .card-price-month-color {
-        color: #555555;
-        font-size: 16px;
-        font-weight: 400;
+      .bg-green {
+        background-color: #E6FFF8;
+        transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+        padding: 64px 0px 0px 0px;
       }
+
     </style>
   </head>
   <body>
-    <header>
-      <div class="logo">
-        <img src="https://via.placeholder.com/30" alt="Ghost Inspector Logo" />
-        <span>Ghost Inspector</span>
-      </div>
-      <nav>
-        <a href="#">Features</a>
-        <a href="#">Solutions</a>
-        <a href="#">Pricing</a>
-        <a href="#">Resources</a>
-      </nav>
-      <div class="auth-buttons">
-        <a href="#">Login</a>
-        <a href="#" class="signup">Sign up</a>
-      </div>
-    </header>
+    <div class="section">
+      <header>
+        <div class="logo">
+          <a href="https://ghostinspector.com">
+            <img
+              fetchpriority="high"
+              src="https://ghostinspector.com/wp-content/uploads/2022/10/Screen-Shot-2022-10-07-at-9.10.14-AM.png"
+              class="attachment-large size-large wp-image-3150"
+              alt=""
+            />
+          </a>
+        </div>
+        <nav>
+            <div class="dropdown">
+                <a href="#">Features
+                    <i class="material-icons">keyboard_arrow_down</i>
+                </a>
+                
+                <div class="dropdown-content">
+                    <div class="feature-item">
+                        <img src="https://via.placeholder.com/20/FF0000" alt="Icon 1">
+                        <span>Point 1</span>
+                    </div>
+                    <div class="feature-item">
+                        <img src="https://via.placeholder.com/20/00FF00" alt="Icon 2">
+                        <span>Point 2</span>
+                    </div>
+                    <div class="feature-item">
+                        <img src="https://via.placeholder.com/20/0000FF" alt="Icon 3">
+                        <span>Point 3</span>
+                    </div>
+                    <div class="feature-item">
+                        <img src="https://via.placeholder.com/20/FFFF00" alt="Icon 4">
+                        <span>Point 4</span>
+                    </div>
+                </div>
+            </div>
+          <a href="#">Solutions
+            <span class="dropdown-arrow"></span>
+          </a>
+          <a href="#">Pricing</a>
+          <a href="#">Resources
+            <span class="dropdown-arrow"></span>
+          </a>
+        </nav>
+        <div class="auth-buttons">
+          <a href="#">Login</a>
+          <a href="#" class="signup">Sign up</a>
+        </div>
+      </header>
+    </div>
 
     <section class="hero">
       <h1>Never let a bug cost you</h1>
@@ -251,153 +405,126 @@
       </p>
       <div class="cta-buttons">
         <a href="#" class="trial">Start your free trial</a>
-        <a href="#" class="demo">Book a Live Demo</a>
+        <a href="#" class="demo"><i class='far fa-play-circle' style='font-size:18px'></i> Book a Live Demo</a>
       </div>
     </section>
 
-    <div class="toggle">
-      <button id="annualBtn" class="toggle-btn-annual active">Annual</button>
-      <button id="monthlyBtn" class="toggle-btn-monthaly">Monthly</button>
-      <span class="save">(SAVE 10%)</span>
+    <div class="bg-green">
+        <div class="toggle">
+            <label for="plan-toggle">Annual</label>
+            <label class="switch">
+              <input type="checkbox" id="plan-toggle" />
+              <span class="slider"></span>
+            </label>
+            <label for="plan-toggle">Monthly</label>
+            <span class="save">(SAVE 10%)</span>
+          </div>
+      
+          <section class="pricing">
+            <div class="card">
+              <h3>Small</h3>
+              <div class="price" id="small-price">$125</div>
+              <span>Month</span>
+              <ul>
+                <li>
+                  <img src="https://via.placeholder.com/16" alt="Check" />10,000 Test
+                  Runs Monthly
+                </li>
+                <li>
+                  <img src="https://via.placeholder.com/16" alt="Users" />5 Team
+                  Members
+                </li>
+                <li>
+                  <img src="https://via.placeholder.com/16" alt="Retention" />6 Month
+                  Result Retention
+                </li>
+              </ul>
+              <a href="#" class="buy-now">Buy now</a>
+            </div>
+            <div class="card popular">
+              <h3>Medium</h3>
+              <div class="price" id="medium-price">$249</div>
+              <span>Month</span>
+              <ul>
+                <li>
+                  <img src="https://via.placeholder.com/16" alt="Check" />30,000 Test
+                  Runs Monthly
+                </li>
+                <li>
+                  <img src="https://via.placeholder.com/16" alt="Users" />15 Team
+                  Members
+                </li>
+                <li>
+                  <img src="https://via.placeholder.com/16" alt="Retention" />6 Month
+                  Result Retention
+                </li>
+              </ul>
+              <a href="#" class="buy-now">Buy now</a>
+            </div>
+            <div class="card">
+              <h3>Large</h3>
+              <div class="price" id="large-price">$499</div>
+              <span>Month</span>
+              <ul>
+                <li>
+                  <img src="https://via.placeholder.com/16" alt="Check" />100,000 Test
+                  Runs Monthly
+                </li>
+                <li>
+                  <img src="https://via.placeholder.com/16" alt="Users" />40 Team
+                  Members
+                </li>
+                <li>
+                  <img src="https://via.placeholder.com/16" alt="Retention" />6 Month
+                  Result Retention
+                </li>
+              </ul>
+              <a href="#" class="buy-now">Buy now</a>
+            </div>
+            <div class="card">
+              <h3>Enterprise</h3>
+              <div class="price" id="enterprise-price">$—</div>
+              <span>Month</span>
+              <ul>
+                <li>
+                  <img src="https://via.placeholder.com/16" alt="Check" />Service
+                  Level Agreement
+                </li>
+                <li>
+                  <img src="https://via.placeholder.com/16" alt="Users" />Single
+                  Sign-On (SSO)
+                </li>
+                <li>
+                  <img src="https://via.placeholder.com/16" alt="Retention" />Priority
+                  Support
+                </li>
+              </ul>
+              <a href="#" class="buy-now">Contact us</a>
+            </div>
+          </section>
+      
+          <a href="#" class="chat">Chat with us</a>
     </div>
+ 
 
-    <section class="pricing">
-      <div class="card">
-        <h3>Small</h3>
-        <div class="price" id="small-price">$125</div>
-        <span class="card-price-month-color">Month</span>
-        <ul>
-          <li class="" style="font-size: 14px; font-weight: 400">
-            <img src="https://via.placeholder.com/16" alt="Check" /><span
-              class=""
-              style="font-weight: 600"
-              >10,000</span
-            >
-            Test Runs Monthly
-          </li>
-          <li>
-            <img src="https://via.placeholder.com/16" alt="Users" />5 Team
-            Members
-          </li>
-          <li>
-            <img src="https://via.placeholder.com/16" alt="Retention" />6 Month
-            Result Retention
-          </li>
-        </ul>
-        <a href="#" class="buy-now">Buy now</a>
-      </div>
-      <div class="card popular">
-        <h3>Medium</h3>
-        <div class="price" id="medium-price">$249</div>
-        <span class="card-price-month-color">Month</span>
-        <ul>
-          <li>
-            <img src="https://via.placeholder.com/16" alt="Check" />30,000 Test
-            Runs Monthly
-          </li>
-          <li>
-            <img src="https://via.placeholder.com/16" alt="Users" />15 Team
-            Members
-          </li>
-          <li>
-            <img src="https://via.placeholder.com/16" alt="Retention" />6 Month
-            Result Retention
-          </li>
-        </ul>
-        <a href="#" class="buy-now">Buy now</a>
-      </div>
-      <div class="card">
-        <h3>Large</h3>
-        <div class="price" id="large-price">$499</div>
-        <span class="card-price-month-color">Month</span>
-        <ul>
-          <li>
-            <img src="https://via.placeholder.com/16" alt="Check" />100,000 Test
-            Runs Monthly
-          </li>
-          <li>
-            <img src="https://via.placeholder.com/16" alt="Users" />40 Team
-            Members
-          </li>
-          <li>
-            <img src="https://via.placeholder.com/16" alt="Retention" />6 Month
-            Result Retention
-          </li>
-        </ul>
-        <a href="#" class="buy-now">Buy now</a>
-      </div>
-      <div class="card">
-        <h3>Enterprise</h3>
-        <div class="price" id="enterprise-price">$—</div>
-        <span class="card-price-month-color">Month</span>
-        <ul>
-          <li>
-            <img src="https://via.placeholder.com/16" alt="Check" />Service
-            Level Agreement
-          </li>
-          <li>
-            <img src="https://via.placeholder.com/16" alt="Users" />Single
-            Sign-On (SSO)
-          </li>
-          <li>
-            <img src="https://via.placeholder.com/16" alt="Retention" />Priority
-            Support
-          </li>
-        </ul>
-        <a href="#" class="buy-now">Contact us</a>
-      </div>
-    </section>
-
-    <a href="#" class="chat">Chat with us</a>
     <script>
-      const annualBtn = document.getElementById("annualBtn");
-      const monthlyBtn = document.getElementById("monthlyBtn");
+      const toggle = document.getElementById("plan-toggle");
+      const smallPrice = document.getElementById("small-price");
+      const mediumPrice = document.getElementById("medium-price");
+      const largePrice = document.getElementById("large-price");
 
-      const prices = {
-        annual: {
-          small: "$125",
-          medium: "$249",
-          large: "$499",
-          enterprise: "$-",
-        },
-        monthly: {
-          small: "$139",
-          medium: "$279",
-          large: "$559",
-          enterprise: "$-",
-        },
-      };
-
-      function updatePrices(type) {
-        document.getElementById("small-price").innerText = prices[type].small;
-        document.getElementById("medium-price").innerText = prices[type].medium;
-        document.getElementById("large-price").innerText = prices[type].large;
-        const enterprisePrice = document.getElementById("enterprise-price");
-        if (enterprisePrice) {
-          enterprisePrice.innerText = prices[type].enterprise;
+      toggle.addEventListener("change", () => {
+        if (toggle.checked) {
+          // Monthly prices
+          smallPrice.textContent = "$125";
+          mediumPrice.textContent = "$249";
+          largePrice.textContent = "$499";
+        } else {
+          // Annual prices (10% discount)
+          smallPrice.textContent = "$112";
+          mediumPrice.textContent = "$224";
+          largePrice.textContent = "$449";
         }
-      }
-
-      annualBtn.addEventListener("click", () => {
-        annualBtn.classList.add("active");
-        monthlyBtn.classList.remove("active");
-        updatePrices("annual");
-      });
-
-      monthlyBtn.addEventListener("click", () => {
-        monthlyBtn.classList.add("active");
-        annualBtn.classList.remove("active");
-        updatePrices("monthly");
-      });
-
-      annualBtn.addEventListener("click", () => {
-        annualBtn.classList.add("active");
-        monthlyBtn.classList.remove("active");
-      });
-
-      monthlyBtn.addEventListener("click", () => {
-        monthlyBtn.classList.add("active");
-        annualBtn.classList.remove("active");
       });
     </script>
   </body>
