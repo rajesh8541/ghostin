@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ghost Inspector Pricing</title>
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #e6fff8;
+      }
+
+      header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 50px;
+        background-color: #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      header .logo {
+        display: flex;
+        align-items: center;
+      }
+
+      header .logo img {
+        width: 30px;
+        margin-right: 10px;
+      }
+
+      header nav a {
+        margin: 0 15px;
+        text-decoration: none;
+        color: #333;
+      }
+
+      header .auth-buttons a {
+        margin-left: 15px;
+        text-decoration: none;
+        color: #333;
+      }
+
+      header .auth-buttons .signup {
+        background-color: #1abc9c;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 20px;
+      }
+
+      header .auth-buttons .signup:hover {
+        background-color: #16a085;
+      }
+
+      .hero {
+        text-align: center;
+        padding: 50px 20px;
+        background-color: #fff;
+      }
+
+      .hero h1 {
+        font-size: 48px;
+        margin-bottom: 20px;
+      }
+
+      .hero p {
+        font-size: 18px;
+        margin-bottom: 30px;
+      }
+
+      .hero .cta-buttons a {
+        margin: 0 10px;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 20px;
+      }
+
+      .hero .cta-buttons .trial {
+        background-color: #1abc9c;
+        color: #fff;
+      }
+
+      .hero .cta-buttons .trial:hover {
+        background-color: #16a085;
+      }
+
+      .hero .cta-buttons .demo {
+        border: 1px solid #1abc9c;
+        color: #1abc9c;
+      }
+
+      .hero .cta-buttons .demo:hover {
+        background-color: #1abc9c;
+        color: #fff;
+      }
+
+      .toggle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0;
+      }
+
+      .toggle-btn-annual,
+      .toggle-btn-monthaly {
+        background-color: white;
+        border: 2px solid #1abc9c;
+        color: #1abc9c;
+        padding: 10px 20px;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .toggle-btn-annual {
+        border-top-left-radius: 20px;
+        border-bottom-left-radius: 20px;
+        border-right: none;
+      }
+
+      .toggle-btn-monthaly {
+        border-top-right-radius: 20px;
+        border-bottom-right-radius: 20px;
+      }
+
+      .toggle .active {
+        background-color: #1abc9c;
+        color: white;
+      }
+
+      .pricing {
+        display: flex;
+        justify-content: center;
+        padding: 50px 20px;
+      }
+
+      .pricing .card {
+        background-color: #fff;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin: 0 10px;
+        padding: 20px;
+        text-align: center;
+        width: 200px;
+        position: relative;
+      }
+
+      .pricing .card.popular::before {
+        content: "POPULAR";
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        background-color: #e6fff8;
+        color: #fff;
+        padding: 5px 10px;
+        transform: rotate(-45deg);
+        font-size: 12px;
+      }
+
+      .pricing .card h3 {
+        margin: 0;
+        font-size: 24px;
+      }
+
+      .pricing .card .price {
+        font-size: 65px;
+        font-weight: 800;
+        color: #1a202c;
+        margin: 10px 0;
+      }
+
+      .pricing .card ul {
+        list-style: none;
+        padding: 0;
+        margin: 20px 0;
+      }
+
+      .pricing .card ul li {
+        margin: 10px 0;
+        font-size: 14px;
+      }
+
+      .pricing .card ul li img {
+        width: 16px;
+        vertical-align: middle;
+        margin-right: 5px;
+      }
+
+      .pricing .card .buy-now {
+        background-color: #1abc9c;
+        color: #fff;
+        padding: 16px 24px;
+        font-size: 16px;
+        font-weight: 500;
+        text-decoration: none;
+        border-radius: 999px 999px 999px 999px;
+      }
+
+      .pricing .card .buy-now:hover {
+        background-color: green;
+      }
+
+      .chat {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        border-radius: 50px;
+        text-decoration: none;
+      }
+
+      .chat:hover {
+        background-color: #1abc9c;
+      }
+      .card-price-month-color {
+        color: #555555;
+        font-size: 16px;
+        font-weight: 400;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="https://via.placeholder.com/30" alt="Ghost Inspector Logo" />
+        <span>Ghost Inspector</span>
+      </div>
+      <nav>
+        <a href="#">Features</a>
+        <a href="#">Solutions</a>
+        <a href="#">Pricing</a>
+        <a href="#">Resources</a>
+      </nav>
+      <div class="auth-buttons">
+        <a href="#">Login</a>
+        <a href="#" class="signup">Sign up</a>
+      </div>
+    </header>
+
+    <section class="hero">
+      <h1>Never let a bug cost you</h1>
+      <p>
+        Don’t lose revenue because of a broken form or defective feature. Our
+        affordable plans let you catch website bugs before they become a
+        problem.
+      </p>
+      <div class="cta-buttons">
+        <a href="#" class="trial">Start your free trial</a>
+        <a href="#" class="demo">Book a Live Demo</a>
+      </div>
+    </section>
+
+    <div class="toggle">
+      <button id="annualBtn" class="toggle-btn-annual active">Annual</button>
+      <button id="monthlyBtn" class="toggle-btn-monthaly">Monthly</button>
+      <span class="save">(SAVE 10%)</span>
+    </div>
+
+    <section class="pricing">
+      <div class="card">
+        <h3>Small</h3>
+        <div class="price" id="small-price">$125</div>
+        <span class="card-price-month-color">Month</span>
+        <ul>
+          <li class="" style="font-size: 14px; font-weight: 400">
+            <img src="https://via.placeholder.com/16" alt="Check" /><span
+              class=""
+              style="font-weight: 600"
+              >10,000</span
+            >
+            Test Runs Monthly
+          </li>
+          <li>
+            <img src="https://via.placeholder.com/16" alt="Users" />5 Team
+            Members
+          </li>
+          <li>
+            <img src="https://via.placeholder.com/16" alt="Retention" />6 Month
+            Result Retention
+          </li>
+        </ul>
+        <a href="#" class="buy-now">Buy now</a>
+      </div>
+      <div class="card popular">
+        <h3>Medium</h3>
+        <div class="price" id="medium-price">$249</div>
+        <span class="card-price-month-color">Month</span>
+        <ul>
+          <li>
+            <img src="https://via.placeholder.com/16" alt="Check" />30,000 Test
+            Runs Monthly
+          </li>
+          <li>
+            <img src="https://via.placeholder.com/16" alt="Users" />15 Team
+            Members
+          </li>
+          <li>
+            <img src="https://via.placeholder.com/16" alt="Retention" />6 Month
+            Result Retention
+          </li>
+        </ul>
+        <a href="#" class="buy-now">Buy now</a>
+      </div>
+      <div class="card">
+        <h3>Large</h3>
+        <div class="price" id="large-price">$499</div>
+        <span class="card-price-month-color">Month</span>
+        <ul>
+          <li>
+            <img src="https://via.placeholder.com/16" alt="Check" />100,000 Test
+            Runs Monthly
+          </li>
+          <li>
+            <img src="https://via.placeholder.com/16" alt="Users" />40 Team
+            Members
+          </li>
+          <li>
+            <img src="https://via.placeholder.com/16" alt="Retention" />6 Month
+            Result Retention
+          </li>
+        </ul>
+        <a href="#" class="buy-now">Buy now</a>
+      </div>
+      <div class="card">
+        <h3>Enterprise</h3>
+        <div class="price" id="enterprise-price">$—</div>
+        <span class="card-price-month-color">Month</span>
+        <ul>
+          <li>
+            <img src="https://via.placeholder.com/16" alt="Check" />Service
+            Level Agreement
+          </li>
+          <li>
+            <img src="https://via.placeholder.com/16" alt="Users" />Single
+            Sign-On (SSO)
+          </li>
+          <li>
+            <img src="https://via.placeholder.com/16" alt="Retention" />Priority
+            Support
+          </li>
+        </ul>
+        <a href="#" class="buy-now">Contact us</a>
+      </div>
+    </section>
+
+    <a href="#" class="chat">Chat with us</a>
+    <script>
+      const annualBtn = document.getElementById("annualBtn");
+      const monthlyBtn = document.getElementById("monthlyBtn");
+
+      const prices = {
+        annual: {
+          small: "$125",
+          medium: "$249",
+          large: "$499",
+          enterprise: "$-",
+        },
+        monthly: {
+          small: "$139",
+          medium: "$279",
+          large: "$559",
+          enterprise: "$-",
+        },
+      };
+
+      function updatePrices(type) {
+        document.getElementById("small-price").innerText = prices[type].small;
+        document.getElementById("medium-price").innerText = prices[type].medium;
+        document.getElementById("large-price").innerText = prices[type].large;
+        const enterprisePrice = document.getElementById("enterprise-price");
+        if (enterprisePrice) {
+          enterprisePrice.innerText = prices[type].enterprise;
+        }
+      }
+
+      annualBtn.addEventListener("click", () => {
+        annualBtn.classList.add("active");
+        monthlyBtn.classList.remove("active");
+        updatePrices("annual");
+      });
+
+      monthlyBtn.addEventListener("click", () => {
+        monthlyBtn.classList.add("active");
+        annualBtn.classList.remove("active");
+        updatePrices("monthly");
+      });
+
+      annualBtn.addEventListener("click", () => {
+        annualBtn.classList.add("active");
+        monthlyBtn.classList.remove("active");
+      });
+
+      monthlyBtn.addEventListener("click", () => {
+        monthlyBtn.classList.add("active");
+        annualBtn.classList.remove("active");
+      });
+    </script>
+  </body>
+</html>
